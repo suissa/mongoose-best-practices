@@ -2,7 +2,7 @@
 var mongoose = require( 'mongoose' );
 
 // Build the connection string
-var dbURI = 'mongodb://localhost/ConnectionTest';
+var dbURI = 'mongodb://localhost/mongoose-best-practices';
 
 // Create the database connection
 mongoose.connect(dbURI);
@@ -23,6 +23,11 @@ mongoose.connection.on('disconnected', function () {
   console.log('Mongoose default connection disconnected');
 });
 
+// When the connection is disconnected
+mongoose.connection.on('open', function () {
+  console.log('Mongoose default connection is open');
+});
+
 // If the Node process ends, close the Mongoose connection
 process.on('SIGINT', function() {
   mongoose.connection.close(function () {
@@ -34,4 +39,4 @@ process.on('SIGINT', function() {
 
 // BRING IN YOUR SCHEMAS & MODELS
 // For example
-require('./team');
+require('../model/index');

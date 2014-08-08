@@ -1,0 +1,2 @@
+
+var Beer = require('./beer');

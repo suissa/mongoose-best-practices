@@ -1,8 +1,8 @@
 var mongoose = require( 'mongoose' ),
-    Team = mongoose.model('Team');
+    Beer = mongoose.model('Beer');
 
 exports.index = function (req, res) {
-  Team.create({
+  Beer.create({
     Country : "England",
     GroupName: "D",
     CreatedOn: Date.now()
@@ -15,7 +15,7 @@ exports.index = function (req, res) {
       console.log(err);
       strOutput = 'Oh dear, we\'ve got an error';
     } else {
-      console.log('Team created: ' + team);
+      console.log('Beer created: ' + team);
       strOutput = team.Country + ' created in Group ' + team.GroupName + '\nat ' + team.CreatedOn;
     }
     res.write(strOutput);

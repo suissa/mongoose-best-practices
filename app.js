@@ -1,5 +1,5 @@
 var http = require('http'),
-    db = require('./model/db'),
+    db = require('./config/db'),
     pages = require('./pages');
 
 http.createServer(function (req, res) {
